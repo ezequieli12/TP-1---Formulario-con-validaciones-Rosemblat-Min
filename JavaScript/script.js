@@ -21,12 +21,8 @@ function ValidacionDe2Pasos()
     var Confirmacion = document.getElementById("Confirmacion");
     let Mensaje = document.getElementById("MensajeC")
     console.log(MensajeC + " " + Contraseña +" "+ Confirmacion)
-    if (Confirmacion!=Contraseña)
+    if (Confirmacion===Contraseña)
     {
-        Mensaje.style.color="red";
-    }
-    else if (Confirmacion==Contraseña)
-    {
-        Mensaje.style.color="green"
+        Mensaje.style.color="green";
     }
 }
