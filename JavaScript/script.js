@@ -1,28 +1,39 @@
-function ErrorAlValidarContraseña() 
-{
-    var Contraseña =document.getElementById("Contraseña");
-    if (Contraseña.length<8)
-    {
-        alert("Tu contraseña no tiene los suficientes caracteres")
-    }
-}
 function ErrorAlValidarNombre() 
 {
+    let Mensaje = document.getElementById("MensajeA")
     var Nombre = document.getElementById("Nombre");
-    if (Nombre.length<3)
+    if (Nombre.value.length>3)
     {
-        console.log("Tu contraseña no tiene los suficientes caracteres")
+        Mensaje.innerHTML="";
     }
     
+}
+function ErrorAlValidarContraseña() 
+{
+    let Mensaje = document.getElementById("MensajeB")
+    var Contraseña =document.getElementById("Contraseña");
+    if (Contraseña.value.length>8)
+    {
+        Mensaje.innerHTML="";
+    }
+    else
+    {
+        Mensaje.innerHTML="Tu contraseña no tiene los suficientes caracteres";
+    }
 }
 function ValidacionDe2Pasos()
 {
     var Contraseña = document.getElementById("Contraseña");
-    var Confirmacion = document.getElementById("Confirmacion");
+    var Confirmacion = document.getElementById("ConfirmarContraseña");
     let Mensaje = document.getElementById("MensajeC")
-    console.log(MensajeC + " " + Contraseña +" "+ Confirmacion)
-    if (Confirmacion===Contraseña)
+    console.log(Mensaje + " " + Contraseña +" "+ Confirmacion)
+    
+    if (Confirmacion.value === Contraseña.value)
     {
-        Mensaje.style.color="green";
+        Mensaje.innerHTML="";
+    }
+    else if (Confirmacion.value !== Contraseña.value)
+    {
+        Mensaje.innerHTML="Validar"
     }
 }
