@@ -65,17 +65,20 @@ function ValidacionDe2Pasos()
     }
 }
 
-function ValidarForm(event)
-{
-    if (!ErrorAlValidarNombre() || !ErrorAlValidarContraseña() || !ValidarMail() || !ValidacionDe2Pasos())
-    {
-        event.preventDefault();
-        alert("Por favor, complete correctamente todos los campos");
+function ValidarForm(event) {
+    event.preventDefault();
+
+    let nombreValido = ErrorAlValidarNombre();
+    let emailValido = ValidarMail();
+    let contraseñaValida = ErrorAlValidarContraseña();
+    let confirmacionValida = ValidacionDe2Pasos();
+
+    if (nombreValido && emailValido && contraseñaValida && confirmacionValida) {
+        alert("Formulario enviado con éxito.");
+        document.getElementById("formulario").submit();
     }
-    else
+    else 
     {
-        alert("Se envió con éxito el formulario");
+        alert("Formulario no enviado, intente de nuevo.");
     }
 }
-
-document.querySelector("form").addEventListener("submit", ValidarForm);
